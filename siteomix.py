@@ -8,7 +8,7 @@ from scipy.spatial import ConvexHull
 
 
 def rigid_transform_3D(A, B):
-    """Вычисляет оптимальную жесткую трансформацию между двумя наборами точек."""
+    """Calculates the optimal rigid transformation between two sets of points."""
     centroid_A = np.mean(A, axis=0)
     centroid_B = np.mean(B, axis=0)
     H = np.dot((A - centroid_A).T, (B - centroid_B))
@@ -24,8 +24,8 @@ def rigid_transform_3D(A, B):
 
 def icp_align(source_pts, target_pts, max_iter=100, tol=1e-6):
     """
-    Выравнивает source_pts к target_pts с помощью алгоритма ICP.
-    Возвращает выровненные точки и среднюю ошибку (mean_error).
+    Aligns source_pts to target_pts using the ICP algorithm.
+    Returns the aligned points and the mean error (mean_error).
     """
     source_pts = source_pts.copy()
     prev_error = 0
@@ -47,7 +47,7 @@ def icp_align(source_pts, target_pts, max_iter=100, tol=1e-6):
 
 
 def create_surface_points(points: np.ndarray, density_factor: float = 2.0) -> np.ndarray:
-    """Извлекает точки, описывающие форму поверхности облака."""
+    """Extracts points that describe the shape of the cloud surface."""
     if len(points) < 10:
         return points
 
@@ -69,7 +69,7 @@ def create_surface_points(points: np.ndarray, density_factor: float = 2.0) -> np
 
 
 def calculate_volume_overlap(points1, points2, resolution=1.0):
-    """Оценка перекрытия объёмов двух облаков точек."""
+    """Estimation of overlapping volumes of two point clouds."""
     if len(points1) == 0 or len(points2) == 0:
         return 0.0
 
@@ -97,7 +97,7 @@ def calculate_volume_overlap(points1, points2, resolution=1.0):
 
 
 def apply_transform_3d(points, angles, translation):
-    """Применяет поворот (углы Эйлера в градусах) и сдвиг к точкам."""
+    """Applies rotation (Euler angles in degrees) and translation to points."""
     rx, ry, rz = np.radians(angles)
     dx, dy, dz = translation
 
@@ -120,8 +120,8 @@ def apply_transform_3d(points, angles, translation):
 
 def optimize_alignment_3d(target_points, source_points):
     """
-    Тонкая оптимизация позы через дифференциальную эволюцию.
-    Работает с полными облаками точек.
+    Fine-tuning of the pose through differential evolution.
+    Works with full point clouds.
     """
     def loss(params):
         rx, ry, rz, dx, dy, dz = params
@@ -147,16 +147,16 @@ def optimize_alignment_3d(target_points, source_points):
 
 def full_alignment(ref_cloud: np.ndarray, target_cloud: np.ndarray) -> dict:
 
-    # 1. Грубое выравнивание ICP (с mean_error)
+    # 1. Coarse ICP alignment (with mean_error)
     aligned_icp, icp_error = icp_align(target_cloud, ref_cloud)
 
-    # 2. Тонкая DE-оптимизация на полных облаках
+    # 2. Fine DE-optimization on full clouds
     aligned_fine = optimize_alignment_3d(ref_cloud, aligned_icp)
 
-    # 3. Объёмное перекрытие по полным облакам
+    # 3. Volume overlap using full clouds
     overlap = calculate_volume_overlap(ref_cloud, aligned_fine)
 
-    # 4. Финальный RMSD
+    # 4. Final RMSD
     kdtree_ref = cKDTree(ref_cloud)
     distances, _ = kdtree_ref.query(aligned_fine)
     fine_rmsd = np.sqrt(np.mean(np.square(distances)))
