@@ -117,7 +117,6 @@ class PDBAtom:
         """
         Output non-standard properties in various formats
         form: 'table'
-            
               'csv'
         """
         if form == "table":
@@ -137,24 +136,7 @@ class PDBAtom:
             for key, value in self.prop_dic.items():
                 print("%s: %s" % (key, value))
 
-        elif form == "catalophore":
-            print(
-                ",".join(
-                    [
-                        str(a)
-                        for a in [
-                            self.atom_number,
-                            self.residue_number,
-                            self.x,
-                            self.y,
-                            self.z,
-                            self.keep_old_bfactor,
-                            self.HP,
-                        ]
-                    ]
-                )
-            )
-
+        
         else:
             u = [
                 int(self.atom_number),  # point_id
@@ -238,17 +220,6 @@ class PDBStructure:
         self.remarks = []  # list that contains non-atom lines
         self.atom = []  # list of instances of PdbAtom
         self.water = []  # water coordinates
-
-        # The following attributes are currently not needed
-        # self.deleted_atom = []      # as atom[], but for deleted atoms (H, HETATM,...)
-        # self.dummy = []             # dummy coordinates
-
-        # # pseudo center atoms (CavBase-like pseudo atoms)
-        # self.pseudo_aliphatic = []  # aliphatic pseudo atoms
-        # self.pseudo_pi = []         # pi pseudo atoms
-        # self.pseudo_donor = []      # donor atoms
-        # self.pseudo_acceptor = []   # acceptor atoms
-        # self.pseudo_DON_ACC = []    # donor_acceptor atoms
 
         if file_obj is not None:
             if (
