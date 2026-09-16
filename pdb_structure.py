@@ -117,7 +117,7 @@ class PDBAtom:
         """
         Output non-standard properties in various formats
         form: 'table'
-              'catalophore'
+            
               'csv'
         """
         if form == "table":
