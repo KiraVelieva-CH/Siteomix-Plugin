@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+э
 """
 class definitions for CavFind
 """
@@ -49,7 +49,7 @@ tool_tips = {
     "alternate": "alternate conformation to be kept (default: 'A'), "
     + "use 'all' to keep all alternates.",
     # Grid setup
-    "grid_spacing": "Grid spacing in Angs. (default: 0.7).",
+    "grid_spacing": "Grid spacing in Angs. (default: 0.6).",
     "probe_radius": "Probe size in Angs. (default: 1.4).",
     "softness": "Soft shell in grid units (default: 0.5).",
     "cushion": "Cushion around the coordinates (default: 0.).",
@@ -199,16 +199,13 @@ class CavFind:
         # Generate numpy arrays for coordinates, radii and hydrophobicity parameters
         coords = []
         radii = []
-        hp = []
         charges = []
         for atom in self.pdb.atom:
             coords.append((atom.x, atom.y, atom.z))
-            radii.append(atom.radius)
-            hp.append(atom.HP)
+            radii.append(atom.radius) 
             charges.append(atom.charge)
         self.coords = np.array(coords, dtype=FP_DTYPE)
         self.radii = np.array(radii, dtype=FP_DTYPE)
-        self.hp = np.array(hp, dtype=FP_DTYPE)
         self.charges = np.array(charges, dtype=FP_DTYPE)
         logger.info(f"Total charge: {np.sum(self.charges):2f}")
 
@@ -372,8 +369,7 @@ class CavFind:
 
             for annotation in annotation_list:
                 annotation_header = f"REMARK Annotation: {annotation}\n"
-                # write one file with all selected cavities included
-                if annotation == "LIG":  # naming compatibility with CavFind
+                if annotation == "LIG":  
                     fname = f"{basename}{extension}"
                 else:
                     fname = f"{basename}_{annotation}{extension}"
@@ -408,8 +404,6 @@ class CavFind:
                                 cav.write(file, file_format, annotation)
                                 file.write("END\n")
                                 logger.info(f"Cavity #{i + 1:d} written to: {fname}")
-
-        # separate file for each cavity with all selected annotations included
         elif file_format == "csv":
             if extension != ".csv":
                 basename = filename
