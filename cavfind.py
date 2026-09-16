@@ -1,4 +1,4 @@
-э
+
 """
 class definitions for CavFind
 """
