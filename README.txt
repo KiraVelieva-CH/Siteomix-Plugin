@@ -3,7 +3,7 @@
 The cavity detection module in this plugin is based on the source code of CavitOmiX v.1.0 developed by Innophore GmbH (https://innophore.com/software/cavitomix/). 
 Specifically, the following files are derived from CavitOmiX: `radii.py`, `pdb_structure.py`, `ligsite.py`, `cavfind.py`. 
 We acknowledge and thank the authors (Georg Steinkellner, Christian C. Gruber, Karl Gruber, and the Innophore Team) for making their code available.
-https://innophore.com/cavitomix
+
 
 ##
 
