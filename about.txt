@@ -1,0 +1,19 @@
+CavitOmiX is a plug-in for the molecular visualization system PyMOL (www.pymol.org) for the calculation and visualization of cavities, which can be used in the search platform 'Catalophore' distributed by Innophore GmbH.
+ 
+Visit https://innophore.com to learn more.
+
+ACKNOWLEDGEMENTS
+The development of this plugin was funded by Innophore GmbH and supported by Amazon Web Services under DDI, Project No. "CC ADV 00502188 2021 TR" entitled "virus.watch/SARSCoV-2". Further support came from the Austrian Science Fund (FWF) through the doc.funds project DOC-46 "Catalox", the Doctoral Academy Graz of the University of Graz, the Austrian Centre of Industrial Biotechnology (Austrian Research Promotion Agency, FFG, project no. 872161) in the project Next Generation Bioproduction no. 92017 and the funding program Lebens!Wichtig of the Styrian Business Promotion Agency and the funding program of the Austrian Research Promotion Agency, project no. 41404876 "VirtualCure-Rapid Development of an Automated & Expandable In-silico High-Throughput Drug Repurposing Screening Pipeline". Catalphore is a registered trademark (AT 295631) of Innophore GmbH.
+
+DISCLAIMER
+Permission is hereby granted, free of charge, to any person engaged in academic and/or industrial research and scholarship (regardless of his or her field of interest, country of origin, ethnicity, or political system) to obtain a copy of this plugin and associated documentation, to use the plugin without restriction (i.e.i.e. without limiting the rights to use, copy, modify, merge, publish, distribute and sublicense copies of the Plugin) and to permit persons to whom the Plugin is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice must be included in all copies of substantial portions of the Information.
+THE PLUGIN IS PROVIDED AS IS, NOT REVIEWED, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE PLUGIN.
+
+If you find CavitOmiX useful in your work, please cite it with a statement like:
+
+"Cavities were calculated using CavitOmiX (v. __version__, __year__, Innophore GmbH). The corresponding hydrophobicity module of the program VASCo [1] was used to analyze the hydrophobicity of the cavities. The cavities were calculated using a modified LIGSITE algorithm [2]."
+
+and use the following references:
+
+[1] Steinkellner, G., Rader, R., Thallinger, G.G., Kratky, C., Gruber, K. "VASCo: Computation and visualization of annotated protein surface contacts", BMC Bioinformatics, 10, 32 (2009).
+[2] Hendlich, M., Rippmann, F., Barnickel, G. "LIGSITE: Automatic and efficient detection of potential small molecule binding sites in proteins", Journal of Molecular Graphics and Modeling, 15 (6), 359-363 (1997).
