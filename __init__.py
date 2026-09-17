@@ -71,7 +71,7 @@ def run_plugin_gui():
 
 Siteomix plugin - binding site detection and calculating the similarity score between them
 Hello, thank you for using our Siteomix plugin!
-If you use it in your research, please cite us:...
+If you use it in your research, please cite us: https://doi.org/10.1007/s10822-026-00913-3
                     (•‿•)   
 
 """
