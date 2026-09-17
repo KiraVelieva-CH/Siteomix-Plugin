@@ -74,6 +74,14 @@ Hello, thank you for using our Siteomix plugin!
 If you use it in your research, please cite us: https://doi.org/10.1007/s10822-026-00913-3
                     (•‿•)   
 
+### ## Acknowledgements
+
+The cavity detection module in this repository is derived from the CavitOmiX PyMOL plugin, developed by Innophore GmbH, 2022. 
+
+Original source: https://innophore.com/software/cavitomix/
+
+We acknowledge and thank the authors (Georg Steinkellner, Christian C. Gruber, Karl Gruber, and the Innophore Team) for making their code available. 
+See the `assets/about.txt` file for the original license notice and citation request.
 """
     logger.info(ascii_art)
 
